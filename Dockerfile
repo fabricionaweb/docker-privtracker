@@ -31,7 +31,8 @@ RUN go mod download
 # build app
 COPY --from=source /src ./
 RUN mkdir /build && \
-    go build -ldflags "-s -w" -trimpath -o /build/
+    go build -trimpath -ldflags "-s -w" \
+    -o /build/
 
 # runtime stage ================================================================
 FROM base
